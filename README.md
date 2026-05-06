@@ -1,2 +1,2 @@
 # GERENCIADOR-LL
-🗂️ Gerenciador LL is a Windows file manager focused on simplicity and productivity. Features: automatic file organization, intelligent search, duplicate detector, quick cleanup, forgotten files detector, file vault, and AI assistant (Premium). Currently in development.
+🗂️ O Gerenciador LL é um gerenciador de arquivos para Windows focado em simplicidade e produtividade. Recursos: organização automática de arquivos, busca inteligente, detector de duplicados, limpeza rápida, detector de arquivos esquecidos, cofre de arquivos e assistente de IA (Premium). Atualmente em desenvolvimento.
