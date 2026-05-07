@@ -10,6 +10,7 @@ Licença: Todos os direitos reservados © 2026 Luis Leal
 
 import customtkinter as ctk
 from iterface.dashboard import criar_dashboard
+from iterface.organizar import criar_organizar
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -32,6 +33,7 @@ def navegar(tela):
         for widget in frame_principal.winfo_children():
             widget.destroy()
         ctk.CTkLabel(frame_principal, text=f"Tela: {tela}", font=ctk.CTkFont(size=20, weight="bold")).pack(expand=True)
+        
 
 ctk.CTkLabel(frame_menu, text="Gerenciador LL", font=ctk.CTkFont(size=16, weight="bold")).pack(pady=16, padx=16, anchor="w")
 ctk.CTkLabel(frame_menu, text="PRINCIPAL", font=ctk.CTkFont(size=10), text_color="gray").pack(anchor="w", padx=16, pady=(8,2))
@@ -47,5 +49,14 @@ for botao, tela in [("🔐 Cofre", "cofre"), ("🕒 Histórico", "historico"), (
     btn = ctk.CTkButton(frame_menu, text=botao, anchor="w", fg_color="transparent", hover_color="#2b2b2b", corner_radius=6, command=lambda t=tela: navegar(t))
     btn.pack(pady=2, padx=8, fill="x")
 criar_dashboard(frame_principal)
+def navegar(tela):
+    if tela == "dashboard":
+        criar_dashboard(frame_principal)
+    elif tela == "organizar":
+        criar_organizar(frame_principal)
+    else:
+        for widget in frame_principal.winfo_children():
+            widget.destroy()
+        ctk.CTkLabel(frame_principal, text=f"Tela: {tela}", font=ctk.CTkFont(size=20, weight="bold")).pack(expand=True)
 app.mainloop()
 
