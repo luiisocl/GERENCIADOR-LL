@@ -11,6 +11,7 @@ Licença: Todos os direitos reservados © 2026 Luis Leal
 import customtkinter as ctk
 from iterface.dashboard import criar_dashboard
 from iterface.organizar import criar_organizar
+from iterface.buscar import criar_buscar
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -54,6 +55,17 @@ def navegar(tela):
         criar_dashboard(frame_principal)
     elif tela == "organizar":
         criar_organizar(frame_principal)
+    else:
+        for widget in frame_principal.winfo_children():
+            widget.destroy()
+        ctk.CTkLabel(frame_principal, text=f"Tela: {tela}", font=ctk.CTkFont(size=20, weight="bold")).pack(expand=True)
+def navegar(tela):
+    if tela == "dashboard":
+        criar_dashboard(frame_principal)
+    elif tela == "organizar":
+        criar_organizar(frame_principal)
+    elif tela == "buscar":
+        criar_buscar(frame_principal)
     else:
         for widget in frame_principal.winfo_children():
             widget.destroy()
