@@ -8,29 +8,42 @@ Descrição: Gerenciador de arquivos inteligente com IA integrada
 Licença: Todos os direitos reservados © 2026 Luis Leal
 """
 
-import os
-import datetime 
+import customtkinter as ctk
 
-pasta = "C:/Users/Luis Guilherme/Documents"
-
-arquivos  = os.listdir(pasta)
-
-print("=== Gerenciador LL ===")
-print(f"Arquivos encontrados: {len(arquivos)}")
-print("-----------------------------")
-
-
-for arquivo in arquivos:
-    caminho_completo = os.path.join(pasta, arquivo)
-
-    if os.path.isfile(caminho_completo):
-        tamanho = os.path.getsize(caminho_completo)
-        tamanho_mb = round(tamanho /1024/ 1024, 2)
-
-        data_modificacao = os.path.getmtime(caminho_completo)
-        data= datetime.datetime.fromtimestamp(data_modificacao)
-
-        data_formatada = data.strftime("%d/%m/%Y")
+ctk. set_appearance_mode("dark")
+ctk. set_default_color_theme("dark-blue")
+app = ctk.CTk()
+app.title("Gerenciador LL")
+app._windows_set_titlebar_color("#2b2b2b")
+largura = app.winfo_screenwidth() 
+altura = app.winfo_screenheight()
+app.geometry(f"{int(largura * 0.85)}x{int(altura * 0.85)}")
+app.minsize(900, 600)
 
 
-        print(f"Arquivo: {arquivo} | Tamanho: {tamanho_mb} MB | Data de Modificação: {data_formatada}")
+    
+frame_menu = ctk.CTkFrame(app, width=220, corner_radius=0)
+frame_menu.pack (side="left", fill="y")
+frame_menu.pack_propagate(False)
+label_logo = ctk.CTkLabel(frame_menu, text="Gerenciador LL", font=ctk.CTkFont(size=16, weight="bold"))
+label_logo.pack(pady=16, padx=16, anchor="w")
+ctk.CTkLabel(frame_menu, text="PRINCIPAL", font=ctk.CTkFont(size=10), text_color="gray").pack(anchor="w", padx=16, pady=(8,2))
+for botao in [ "📊 Dashboard", "📁 Organizar", "🔍 Buscar" ]:
+    btn = ctk.CTkButton(frame_menu, text=botao, anchor="w", fg_color="transparent", hover_color="#2b2b2b", corner_radius=0)
+    btn.pack(pady=2, padx=8, fill="x")
+
+ctk.CTkLabel(frame_menu, text="LIMPEZA", font=ctk.CTkFont(size=10), text_color="gray").pack(anchor="w", padx=16, pady=(12,2))
+for botao in ["👥 Duplicatas", "💤 Esquecidos", "🧹 Limpeza"]:
+    btn = ctk.CTkButton(frame_menu, text=botao, anchor="w", fg_color="transparent", hover_color="#2b2b2b", corner_radius=6)
+    btn.pack(pady=2, padx=8, fill="x")
+ctk.CTkLabel(frame_menu, text="EXTRAS", font=ctk.CTkFont(size=10), text_color="gray").pack(anchor="w", padx=16, pady=(12,2))
+for botao in ["🔐 Cofre", "🕒 Histórico", "🤖 Assistente IA 🔒"]:
+    btn = ctk.CTkButton(frame_menu, text=botao, anchor="w", fg_color="transparent", hover_color="#2b2b2b", corner_radius=6)
+    btn.pack(pady=2, padx=8, fill="x")
+
+
+
+
+app.mainloop()
+
+
