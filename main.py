@@ -12,6 +12,8 @@ import customtkinter as ctk
 from iterface.dashboard import criar_dashboard
 from iterface.organizar import criar_organizar
 from iterface.buscar import criar_buscar
+from iterface.duplicatas import criar_duplicatas
+from iterface.esquecidos import criar_esquecidos
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -66,9 +68,14 @@ def navegar(tela):
         criar_organizar(frame_principal)
     elif tela == "buscar":
         criar_buscar(frame_principal)
+    elif tela == "duplicatas":
+        criar_duplicatas(frame_principal)
+    elif tela == "esquecidos":
+        criar_esquecidos(frame_principal)
     else:
         for widget in frame_principal.winfo_children():
             widget.destroy()
         ctk.CTkLabel(frame_principal, text=f"Tela: {tela}", font=ctk.CTkFont(size=20, weight="bold")).pack(expand=True)
+   
 app.mainloop()
 
