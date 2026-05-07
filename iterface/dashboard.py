@@ -7,7 +7,6 @@ Versão: 1.0.0
 Descrição: Gerenciador de arquivos inteligente com IA integrada
 Licença: Todos os direitos reservados © 2026 Luis Leal
 """
-
 import customtkinter as ctk
 
 def criar_dashboard(frame_principal):
