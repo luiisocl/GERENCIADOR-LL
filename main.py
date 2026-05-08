@@ -14,6 +14,8 @@ from iterface.organizar import criar_organizar
 from iterface.buscar import criar_buscar
 from iterface.duplicatas import criar_duplicatas
 from iterface.esquecidos import criar_esquecidos
+from iterface.limpeza import criar_limpeza
+
 
 ctk.set_appearance_mode("dark")
 ctk.set_default_color_theme("dark-blue")
@@ -72,6 +74,8 @@ def navegar(tela):
         criar_duplicatas(frame_principal)
     elif tela == "esquecidos":
         criar_esquecidos(frame_principal)
+    elif tela == "limpeza":
+        criar_limpeza(frame_principal)
     else:
         for widget in frame_principal.winfo_children():
             widget.destroy()
