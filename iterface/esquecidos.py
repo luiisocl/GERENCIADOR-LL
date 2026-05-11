@@ -107,6 +107,7 @@ def criar_esquecidos(frame_principal):
             btn_deletar.configure(state="normal")
 
     def deletar_esquecidos():
+        from utils.historico import registrar_acao
         if not esquecidos_encontrados:
             return
         resposta = messagebox.askyesno("Confirmar", f"Deseja deletar {len(esquecidos_encontrados)} arquivo(s) esquecido(s)?\n\nEssa ação não pode ser desfeita!")
@@ -119,5 +120,6 @@ def criar_esquecidos(frame_principal):
                     deletados += 1
                 except Exception as e:
                     erros += 1
+            registrar_acao("Esquecidos", f"{deletados} arquivos esquecidos deletados")
             messagebox.showinfo("Concluído", f"✅ {deletados} arquivo(s) deletado(s)!\n❌ {erros} erros.")
             buscar(pasta_var.get())
