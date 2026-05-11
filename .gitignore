@@ -1,0 +1,22 @@
+# PyInstaller
+dist/
+build/
+*.spec
+
+# Dados privados
+.cofre/
+.historico.json
+.stats.json
+.tutorial_visto
+
+# Python cache
+__pycache__/
+*.pyc
+*.pyo
+
+# VS Code
+.vscode/
+
+# Ambiente virtual
+venv/
+.env

@@ -74,6 +74,8 @@ def criar_duplicatas(frame_principal):
         progress.set(1)
         tamanho_total = sum(d[2] for d in duplicatas)
         label_resultado.configure(text=f"✅ {len(duplicatas)} duplicata(s) — {round(tamanho_total, 2)} MB ocupados")
+        from utils.historico import salvar_stats
+        salvar_stats("duplicatas", str(len(duplicatas)), f"{round(tamanho_total, 2)} MB ocupados")
         for nome, caminho, tamanho, original in duplicatas:
             linha = ctk.CTkFrame(scroll, fg_color="transparent", corner_radius=0)
             linha.pack(fill="x")
